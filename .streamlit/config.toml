@@ -1,0 +1,64 @@
+# Bluish gradient-friendly theme, with matching light and dark variants
+# so Streamlit's built-in theme switcher (top-right menu) works.
+
+[theme]
+font = "'Inter':https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+headingFont = "'Inter':https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&display=swap"
+codeFont = "'JetBrains Mono':https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap"
+baseFontSize = 14
+baseRadius = "14px"
+buttonRadius = "14px"
+linkUnderline = false
+showWidgetBorder = true
+showSidebarBorder = true
+
+[theme.light]
+primaryColor = "#2563EB"
+backgroundColor = "#FAFBFF"
+secondaryBackgroundColor = "#EEF2FF"
+textColor = "#0F172A"
+linkColor = "#2563EB"
+borderColor = "#DCE3F5"
+codeBackgroundColor = "#EEF2FF"
+codeTextColor = "#1E293B"
+dataframeBorderColor = "#DCE3F5"
+dataframeHeaderBackgroundColor = "#EEF2FF"
+blueColor = "#2563EB"
+violetColor = "#7C3AED"
+greenColor = "#0F9D6C"
+redColor = "#DC2626"
+orangeColor = "#D97706"
+chartCategoricalColors = ["#2563EB", "#7C3AED", "#0EA5E9", "#4F46E5", "#0891B2", "#DB2777", "#0F9D6C"]
+
+[theme.dark]
+primaryColor = "#60A5FA"
+backgroundColor = "#0B1220"
+secondaryBackgroundColor = "#141B2E"
+textColor = "#E5EDFF"
+linkColor = "#7DB2FF"
+borderColor = "#293150"
+codeBackgroundColor = "#141B2E"
+codeTextColor = "#E5EDFF"
+dataframeBorderColor = "#293150"
+dataframeHeaderBackgroundColor = "#141B2E"
+blueColor = "#60A5FA"
+violetColor = "#A78BFA"
+greenColor = "#34D399"
+redColor = "#F87171"
+orangeColor = "#FBBF24"
+chartCategoricalColors = ["#60A5FA", "#A78BFA", "#38BDF8", "#818CF8", "#22D3EE", "#F472B6", "#34D399"]
+
+[theme.light.sidebar]
+backgroundColor = "#EEF2FF"
+secondaryBackgroundColor = "#E0E7FF"
+borderColor = "#DCE3F5"
+primaryColor = "#2563EB"
+
+[theme.dark.sidebar]
+backgroundColor = "#0F1830"
+secondaryBackgroundColor = "#141B2E"
+borderColor = "#293150"
+primaryColor = "#60A5FA"
+
+[server]
+headless = true
