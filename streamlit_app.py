@@ -21,6 +21,9 @@ st.set_page_config(
     layout="wide",
 )
 
+# Native navbar logo: shows in the app header and atop the sidebar.
+st.logo(":material/checkroom:", size="large")
+
 # Scoped gradient accent for the primary call-to-action button only.
 # (Native theming can set solid colors but not gradients, so this one
 # deliberate, key-scoped style rule covers the gradient look the rest
@@ -75,11 +78,24 @@ def render_prediction(display_image, model_input, caption, actual_label=None):
 
 
 with st.sidebar:
-    st.subheader("Fashion MNIST classifier", divider="blue")
+    st.subheader("Fashion MNIST classifier", icon=":material/checkroom:", divider="blue")
     st.caption("A dense neural network trained on 60,000 Zalando product images.")
-    st.write("**Categories**")
-    st.write(" · ".join(CLASS_NAMES))
-    st.caption("Model file: model/fashion_mnist.keras")
+
+    with st.container(border=True):
+        st.write("**Categories**")
+        with st.container(horizontal=True, gap="small"):
+            for name in CLASS_NAMES:
+                st.badge(name, color="blue")
+
+    st.write("**Get started**")
+    with st.container(horizontal=True, gap="small"):
+        st.badge("Upload a photo", icon=":material/upload_file:", color="violet")
+        st.badge("Try a sample", icon=":material/shuffle:", color="violet")
+
+    st.space("large")
+    with st.container(horizontal=True, horizontal_alignment="distribute"):
+        st.caption("Model: fashion_mnist.keras")
+        st.caption("v1.0")
     st.caption("Tip: switch light/dark mode from the ⋮ menu, top right.")
 
 st.html(
@@ -120,7 +136,7 @@ tab_upload, tab_sample, tab_about = st.tabs(
 
 with tab_upload:
     st.write("Upload a clear, front-facing photo of a single clothing item.")
-    invert = st.checkbox(
+    invert = st.toggle(
         "Photo has a light background",
         value=True,
         help=(
@@ -162,7 +178,7 @@ with tab_sample:
     render_prediction(raw_image, model_input, caption=f"Actual: {actual_label}", actual_label=actual_label)
 
 with tab_about:
-    st.subheader("Architecture", divider="violet")
+    st.subheader("Architecture", icon=":material/hub:", divider="violet")
     st.write(
         "A fully-connected (dense) network trained from scratch on the 28x28 "
         "grayscale Fashion MNIST images, flattened to 784-length vectors."
@@ -178,7 +194,7 @@ with tab_about:
         language=None,
     )
 
-    st.subheader("Performance on the test set", divider="blue")
+    st.subheader("Performance on the test set", icon=":material/analytics:", divider="blue")
     accuracy, report = compute_test_metrics()
     with st.container(border=True):
         st.metric("Overall test accuracy", f"{accuracy * 100:.2f}%")
